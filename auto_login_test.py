@@ -25,9 +25,10 @@ with sync_playwright() as p:
 
         page.fill("#user", EMAIL)
         page.fill("#password", PASSWORD)
-        page.click('input[type="submit"][value="Login"]')
+        page.wait_for_timeout(1000)
+        page.press("#password", "Enter")
 
-        page.wait_for_timeout(5000)
+        page.wait_for_timeout(8000)
     else:
         print("Already logged in or login page not visible.")
 
